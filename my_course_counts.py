@@ -53,7 +53,7 @@ def view_root():
     return render_template('base.html')
 
 @app.route('/results') # This funtion needs to have a loop that acquires the right information to be displayed on the
-# filtered page
+
 def view_results():
     return render_template('filtered_page.html')
 
