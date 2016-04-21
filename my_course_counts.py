@@ -52,7 +52,19 @@ Design, what should entire website looks like, what should CSS look like? What s
 def view_root():
     return render_template('base.html')
 
-@app.route('/results') # This funtion needs to have a loop that acquires the right information to be displayed on the
+@app.route('/results') # This function needs to have a loop that acquires the right information to be displayed on the
+'''
+Basic structure of what goes here:
+We might need a loop for each dropdown meun.
+new_list=[]
+For selection in dropdown:
+    take value of selection
+    for value in course_data,
+        new_list.append all the things at the indices surrounding the thing you selected
+If someone selected something from this menu, then, take the value
+associated with the thing they checked, and then loop through the course_info list. If the object in the course_info
+list matches the thing you clicked on the dropdown, then do basically what we did in the flask lab.
+'''
 
 def view_results():
     return render_template('filtered_page.html')
