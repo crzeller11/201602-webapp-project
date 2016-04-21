@@ -52,7 +52,7 @@ Design, what should entire website looks like, what should CSS look like? What s
 def view_root():
     return render_template('base.html')
 
-@app.route('/results') # This function needs to have a loop that acquires the right information to be displayed on the
+@app.route('/results') # This function needs to have a loop that acquires the right information to be displayed
 '''
 Basic structure of what goes here:
 We might need a loop for each dropdown meun.
