@@ -35,13 +35,39 @@ def get_data():
             schedule, core, total_seats, enrolled, reserved, reserved_open, waitlisted))
     return course_data
 
-# check the course_info class and just see if thats the right thing to do and then check the get_data function. I don't
-# think the list course_data needs to b sorted like in did in the flask lab, because we aren't searching for anything in
+
+
+# check the course_info class and just see if that's the right thing to do and then check the get_data function. I don't
+# think the list course_data needs to be sorted like in did in the flask lab, because we aren't searching for anything in
 # particular like we were before.
 
-@app.route('/course_counts')
+'''
+THings we need:
+HTML file that displays results (filtered_page)
+Design, what should entire website looks like, what should CSS look like? What should whole design look like
+'''
+
+
+@app.route('/')
 def view_root():
     return render_template('base.html')
+
+@app.route('/results') # This function needs to have a loop that acquires the right information to be displayed on the
+'''
+Basic structure of what goes here:
+We might need a loop for each dropdown meun.
+new_list=[]
+For selection in dropdown:
+    take value of selection
+    for value in course_data,
+        new_list.append all the things at the indices surrounding the thing you selected
+If someone selected something from this menu, then, take the value
+associated with the thing they checked, and then loop through the course_info list. If the object in the course_info
+list matches the thing you clicked on the dropdown, then do basically what we did in the flask lab.
+'''
+
+def view_results():
+    return render_template('filtered_page.html')
 
 
 # The functions below lets you access files in the css, js, and images folders.
