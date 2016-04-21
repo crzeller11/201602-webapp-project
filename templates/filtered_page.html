@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Results for (insert the dropdown requirements that were listed somehow)</title>
+    <title>{{ course_info.year }}</title>
 </head>
 <body>
-    {{Term}}
+    <header> <u>Year</u> <u>Season</u> <u>Department</u> <u>Course Number</u> <u>Section Title</u> <u>Units</u>
+        <u>Professor</u> <u>Schedule</u> <u>Core</u> <u>Total Seats</u> <u>Enrolled</u> <u>Reserved</u> <u>Reserved Open</u>
+        <u>Waitlisted</u>
+    </header>
+    <p>
+        {{ list }}
+    </p>
 </body>
 </html>
