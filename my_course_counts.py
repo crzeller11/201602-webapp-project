@@ -53,26 +53,6 @@ def view_root():
     return render_template('base.html')
 
 @app.route('/results') # This function needs to have a loop that acquires the right information to be displayed on the
-def view_course_info(year, term, core_recs, dept):
-    courses = get_data()
-    length = len(courses)
-    for index in range(length):
-        course = courses[index]
-        if year != course.year:
-            del courses[index]
-        if term != course.season:
-            del courses[index]
-        if core_recs != course.core:
-            del courses[index]
-        if dept != course.department:
-            del course[index]
-        length_remaining = len(courses)
-        if length == 0:
-            courses.append('There are no results for this search')
-    return render_template('filtered_page.html', list=courses)
-
-# there should be a loop for each dropdown, so we might have to change what is written here
-
 '''
 Basic structure of what goes here:
 We might need a loop for each dropdown meun.
@@ -86,6 +66,8 @@ associated with the thing they checked, and then loop through the course_info li
 list matches the thing you clicked on the dropdown, then do basically what we did in the flask lab.
 '''
 
+def view_results():
+    return render_template('filtered_page.html')
 
 
 # The functions below lets you access files in the css, js, and images folders.
