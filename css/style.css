@@ -26,3 +26,22 @@
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+h2 {color:#43C6DB;
+    font-family: serif;
+    text-align: center;
+}
+
+.seal {
+    position: relative;
+    overflow: hidden;
+}
+
+.seal img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity:0.6;
+}
