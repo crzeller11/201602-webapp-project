@@ -10,7 +10,7 @@
 <body>
     <img src="/images/oxy-seal.png" style="width:150px; height:150px;">
     Course Counts:
-    <form>
+    <form method="get" action="/results">
         <select name="year" id="year_selection">
             <option>Please Select a Year</option>
             <option value="2010" >2010</option>
@@ -23,9 +23,6 @@
             <option value="2017" >2017</option>
         </select>
 
-
-
-
         <select name="term" id="term_selection">
             <option>Please Select a Term</option>
             <option value="fall" >Fall</option>
@@ -34,6 +31,7 @@
         </select>
 
         <select name="core_recs" id="core_recs_selection">
+            <option>Please Select Core</option>
             <option value="CPAF" >Core Africa and the Middle East</option>
             <option value="CPAS" >Core Central/South/East Asia</option>
             <option value="CPEU" >Core Europe</option>
@@ -52,6 +50,7 @@
         </select>
 
         <select name="dept" id="dept_selection">
+            <option>Please Select a Department</option>
             <option value="ABAR" >Occidental-in-Argentina</option>
             <option value="ABAS" >Occidental-in-Austria</option>
             <option value="ABAU" >Occidental-in-Australia</option>
@@ -141,12 +140,10 @@
             <option value="WRD" >Writing and Rhetoric</option>
         </select>
 
-         <p>
+        <p>
             <input class="button" type="submit" value="Submit"/>
         </p>
-
     </form>
-
 
 </body>
 </html>

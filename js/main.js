@@ -16,7 +16,3 @@ window.onclick = function(event) {
   }
 }
 
-$("#year :selected").text();
-$("#term :selected").text();
-$("#core_recs :selected").text();
-$("#dept :selected").text();

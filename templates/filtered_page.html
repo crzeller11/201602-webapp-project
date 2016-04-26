@@ -5,13 +5,46 @@
     <title>Results</title>
 </head>
 <body>
-    <header> <u>Year</u> <u>Season</u> <u>Department</u> <u>Course Number</u> <u>Section Title</u> <u>Units</u>
-        <u>Professor</u> <u>Schedule</u> <u>Core</u> <u>Total Seats</u> <u>Enrolled</u> <u>Reserved</u> <u>Reserved Open</u>
-        <u>Waitlisted</u>
-    </header>
-    <p>
-        {{ list }}
-        
-    </p>
+<p>
+    {{ course }}
+</p>
+    <table border="1" style="width:50%" class="tabled_info">
+        <tr>
+            <th>Year </th>
+            <th>Term</th>
+            <th>Department</th>
+            <th>Course Number</th>
+            <th>Section</th>
+            <th>Title</th>
+            <th>Units</th>
+            <th>Professor</th>
+            <th>Schedule</th>
+            <th>Core</th>
+            <th>Total Seats</th>
+            <th>Enrolled</th>
+            <th>Reserved</th>
+            <th>Reserved Open</th>
+            <th>Waitlisted</th>
+        </tr>
+        {% for course in results %}
+        <tr>
+            <td>{{ course.year }}</td>
+            <td>{{ course.term }}</td>
+            <td>{{ course.dept }}</td>
+            <td>{{ course.course_num }}</td>
+            <td>{{ course.section }}</td>
+            <td>{{ course.title }}</td>
+            <td>{{ course.units }}</td>
+            <td>{{ course.professor }}</td>
+            <td>{{ course.schedule }}</td>
+            <td>{{ course.core_recs }}</td>
+            <td>{{ course.total_seats }}</td>
+            <td>{{ course.enrolled }}</td>
+            <td>{{ course.reserved }}</td>
+            <td>{{ course.reserved_open }}</td>
+            <td>{{ course.waitlisted }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

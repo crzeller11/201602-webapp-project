@@ -26,3 +26,12 @@
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+th, td {
+    padding: 15px;
+}
