@@ -29,9 +29,29 @@
 
 table, th, td {
     border: 1px solid black;
-    text-align: center;
+
 }
 
 th, td {
+    text-align: center;
     padding: 15px;
+}
+
+h2 {color:#43C6DB;
+    font-family: serif;
+    text-align: center;
+}
+
+.seal {
+    position: relative;
+    overflow: hidden;
+}
+
+.seal img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity:0.6;
 }
