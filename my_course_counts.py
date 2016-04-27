@@ -33,11 +33,19 @@ def get_data():
         for line in file.read().splitlines():
             year, term, dept, course_num, section, title, units, professor, schedule, core_recs, total_seats, \
             enrolled, reserved, reserved_open, waitlisted = line.split('\t')
+            professor = professor.split(';')
+            professor = ", ".join(professor)
             course_data.append(Course_Info(year, term, dept, course_num, section, title, units, professor,
             schedule, core_recs, total_seats, enrolled, reserved, reserved_open, waitlisted))
     return course_data
 
-# how do we know when we have that weird indexing issue that we have to deal with?
+def get_prof_list():
+    list_of_prof = []
+    course_data = get_data()
+    for instance in course_data:
+        if instance.professor not in list_of_prof:
+            list_of_prof.append(instance.professor)
+    return sorted(list_of_prof)
 
 
 # check the course_info class and just see if that's the right thing to do and then check the get_data function. I don't
@@ -53,7 +61,8 @@ Design, what should entire website looks like, what should CSS look like? What s
 
 @app.route('/')
 def view_root():
-    return render_template('base.html')
+    list_of_prof = get_prof_list()
+    return render_template('base.html', list_of_prof=list_of_prof)
 
 
 
@@ -63,10 +72,12 @@ def view_course_info():
     term = request.args.get('term')
     core_recs = request.args.get('core_recs')
     dept = request.args.get('dept')
+    professor = request.args.get('professor')
     all_course_info = get_data()
     refined_year = []
     refined_term = []
     refined_core_recs = []
+    refined_dept = []
     results = []
     if year == "Please Select a Year":
         refined_year = all_course_info
@@ -84,13 +95,19 @@ def view_course_info():
         refined_core_recs = refined_term
     if core_recs is not None:
         for instance in refined_term:
-            if instance.core_recs == core_recs:
+            if instance.core_recs.find(core_recs) != -1:
                 refined_core_recs.append(instance)
     if dept == "Please Select a Department":
-        results = refined_core_recs
+        refined_dept = refined_core_recs
     if dept is not None:
         for instance in refined_core_recs:
             if instance.dept == dept:
+                refined_dept.append(instance)
+    if professor == "Please Select a Professor":
+        results = refined_dept
+    if professor is not None:
+        for instance in refined_dept:
+            if instance.professor.find(professor) != -1:
                 results.append(instance)
     return render_template('filtered_page.html', results=results)
 

@@ -144,6 +144,13 @@
             <option value="WRD" >Writing and Rhetoric</option>
         </select>
 
+        <select name="professor" id="professor_selection">
+            <option>Please Select a Professor</option>
+            {% for prof in list_of_prof %}
+            <option value="{{ prof }}" >{{ prof }}</option>
+            {% endfor %}
+        </select>
+
         <p>
             <input class="button" type="submit" value="Submit"/>
         </p>
