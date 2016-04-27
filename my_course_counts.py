@@ -45,7 +45,7 @@ def get_data():
 # particular like we were before.
 
 '''
-THings we need:
+Things we need:
 HTML file that displays results (filtered_page)
 Design, what should entire website looks like, what should CSS look like? What should whole design look like
 '''

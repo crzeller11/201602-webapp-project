@@ -55,3 +55,13 @@ h2 {color:#43C6DB;
     height: auto;
     opacity:0.6;
 }
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+    background-color: #fff;
+}
+table#t01 th {
+    color: white;
+    background-color: black;
+}
