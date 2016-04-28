@@ -10,4 +10,6 @@ alert( core_recs.options[ core_recs.selectedIndex ].value )
 var dept = document.getElementById( "dept_selection" );
 alert( dept.options[ dept.selectedIndex ].value )
 
+var professor = document.getElementById( "professor_selection" );
+alert( professor.options[ professor.selectedIndex ].value )
 
