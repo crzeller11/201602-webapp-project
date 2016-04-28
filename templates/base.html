@@ -2,49 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Results</title>
+    <title>My Course Counts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/main.js"></script>
 </head>
+
 <body>
-<p>
-    {{ course }}
-</p>
-    <table border="1" cellpadding="5" cellspacing="5" style="width:50%" id="t01">
-        <tr>
-            <th>Year </th>
-            <th>Term</th>
-            <th>Department</th>
-            <th>Course Number</th>
-            <th>Section</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Professor</th>
-            <th>Schedule</th>
-            <th>Core</th>
-            <th>Total Seats</th>
-            <th>Enrolled</th>
-            <th>Reserved</th>
-            <th>Reserved Open</th>
-            <th>Waitlisted</th>
-        </tr>
-        {% for course in results %}
-        <tr>
-            <td>{{ course.year }}</td>
-            <td>{{ course.season }}</td>
-            <td>{{ course.department }}</td>
-            <td>{{ course.course_num }}</td>
-            <td>{{ course.section }}</td>
-            <td>{{ course.title }}</td>
-            <td>{{ course.units }}</td>
-            <td>{{ course.professor }}</td>
-            <td>{{ course.schedule }}</td>
-            <td>{{ course.core_recs }}</td>
-            <td>{{ course.total_seats }}</td>
-            <td>{{ course.enrolled }}</td>
-            <td>{{ course.reserved }}</td>
-            <td>{{ course.reserved_open }}</td>
-            <td>{{ course.waitlisted }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+
+    <div class="seal">
+        <img src="/images/oxy-seal.png" style="width:150px; height:150px;">
+    </div>
+    <h2>Course Counts:</h2>
+    <form method="get" action="/results">
+
+        <select name="year" id="year_selection">
+            <option>Please Select a Year</option>
+            <option value="2010" >2010</option>
+            <option value="2011" >2011</option>
+            <option value="2012" >2012</option>
+            <option value="2013" >2013</option>
+            <option value="2014" >2014</option>
+            <option value="2015" >2015</option>
+            <option value="2016" >2016</option>
+            <option value="2017" >2017</option>
+        </select>
+
+        <select name="term" id="term_selection">
+            <option>Please Select a Term</option>
+            <option value="fall" >Fall</option>
+            <option value="spring" >Spring</option>
+            <option value="summer" >Summer</option>
+        </select>
+
+        <select name="core_recs" id="core_recs_selection">
+            <option>Please Select Core</option>
+            <option value="CPAF" >Core Africa and the Middle East</option>
+            <option value="CPAS" >Core Central/South/East Asia</option>
+            <option value="CPEU" >Core Europe</option>
+            <option value="CPFA" >Core Fine Arts (CPFA)</option>
+            <option value="CFAP" >Core Fine Arts Partial (CFAP)</option>
+            <option value="CPGC" >Core Global Connections (CPGC)</option>
+            <option value="CPIC" >Core Intercultural (CPIC)</option>
+            <option value="CPLS" >Core Laboratory Science (CPLS)</option>
+            <option value="CPLA" >Core Latin America (CPLA)</option>
+            <option value="CMSP" >Core Math/Science Partial (CMSP)</option>
+            <option value="CPMS" >Core Mathematics/Science (CPMS)</option>
+            <option value="CPPE" >Core Pre-1800 (CPPE)</option>
+            <option value="CPRF" >Core Regional Focus (CPRF)</option>
+            <option value="CPUS" >Core United States (CPUS)</option>
+            <option value="CPUD" >Core United States Diversity (CPUD)</option>
+        </select>
+
+        <select name="dept" id="dept_selection">
+            <option>Please Select a Department</option>
+            <option value="ABAR" >Occidental-in-Argentina</option>
+            <option value="ABAS" >Occidental-in-Austria</option>
+            <option value="ABAU" >Occidental-in-Australia</option>
+            <option value="ABBO" >Occidental-in-Bolivia</option>
+            <option value="ABBR" >Occidental-in-Brazil</option>
+            <option value="ABBW" >Occidental-in-Botswana</option>
+            <option value="ABCH" >Occidental-in-China</option>
+            <option value="ABCI" >Occidental-in-Chile</option>
+            <option value="ABCR" >Occidental-in-Costa Rica</option>
+            <option value="ABCZ" >Occidental-in-the-Czech Republic</option>
+            <option value="ABDE" >Occidental-in-Denmark</option>
+            <option value="ABDR" >Occidental-in-the-Dominican Republic</option>
+            <option value="ABFR" >Occidental-in-France</option>
+            <option value="ABGE" >Occidental-in-Germany</option>
+            <option value="ABHU" >Occidental-in-Hungary</option>
+            <option value="ABIC" >Occidental-in-Iceland </option>
+            <option value="ABID" >Occidental-in-Indonesia (ABID)</option>
+            <option value="ABIN" >Occidental-in-India</option>
+            <option value="ABIR" >Occidental-in-Ireland (ABIR)</option>
+            <option value="ABIT" >Occidental-in-Italy (ABIT)</option>
+            <option value="ABJA" >Occidental-in-Japan (ABJA)</option>
+            <option value="ABJO" >Occidental-in-Jordan (ABJO)</option>
+            <option value="ABMO" >Occidental-in-Morocco (ABMO)</option>
+            <option value="ABNA" >Occidental-in-the-Netherlands Antilles (ABNA)</option>
+            <option value="ABNI" >Occidental-in-Nicaragua (ABNI)</option>
+            <option value="ABNT" >Occidental-in-the-Netherlands (ABNT)</option>
+            <option value="ABNZ" >Occidental-in-New Zealand (ABNZ)</option>
+            <option value="ABPE" >Occidental-in-Peru (ABPE)</option>
+            <option value="ABRU" >Occidental-in-Russia (ABRU)</option>
+            <option value="ABSA" >Occidental-in-South Africa</option>
+            <option value="ABSE" >Occidental-in-Senegal</option>
+            <option value="ABSE" >Occidental-in-Senegal</option>
+            <option value="ABSM" >Occidental-in-Samoa</option>
+            <option value="ABSN" >Occidental-in-Sweden</option>
+            <option value="ABSP" >Occidental-in-Spain</option>
+            <option value="ABSW" >Occidental-in-Switzerland</option>
+            <option value="ABTN" >Occidental-in-Taiwan</option>
+            <option value="ABUA" >Occidental-in-the-United Arab Emirates</option>
+            <option value="ABUK" >Occidental-in-the-United Kingdom</option>
+            <option value="AMST" >American Studies</option>
+            <option value="ARAB" >Arabic</option>
+            <option value="ARTH" >Art History and Visual Arts/Art History</option>
+            <option value="ARTM" >Art History and Visual Arts/Media Arts and Culture</option>
+            <option value="ARTS" >Art History and Visual Arts/Studio Art</option>
+            <option value="BICH" >Biochemistry</option>
+            <option value="BIO" >Biology</option>
+            <option value="CHEM" >Chemistry</option>
+            <option value="CHIN" >Chinese</option>
+            <option value="CLAS" >Classical Studies</option>
+            <option value="COGS" >Cognitive Science</option>
+            <option value="COMP" >Computer Science</option>
+            <option value="CSLC" >Comparative Studies in Literature and Culture</option>
+            <option value="CSP" >Cultural Studies Program</option>
+            <option value="CTSJ" >Critical Theory and Social Justice</option>
+            <option value="DWA" >Diplomacy and World Affairs</option>
+            <option value="ECLS" >English and Comparative Literary Studies</option>
+            <option value="ECON" >Economics</option>
+            <option value="EDUC" >Education</option>
+            <option value="ENGL" >English</option>
+            <option value="ENWR" >English Writing</option>
+            <option value="FREN" >French</option>
+            <option value="GEO" >Geology'</option>
+            <option value="GERM" >German</option>
+            <option value="GRK" >Greek</option>
+            <option value="HIST" >History</option>
+            <option value="ITAL" >Italian</option>
+            <option value="JAPN" >Japanese</option>
+            <option value="KINE" >Kinesiology</option>
+            <option value="LANG" >Language</option>
+            <option value="LATN" >Latin</option>
+            <option value="LING" >Linguistics</option>
+            <option value="LLAS" >Latino/a and Latin American Studies</option>
+            <option value="MATH" >Mathematics</option>
+            <option value="MUSA" >Music Applied Study</option>
+            <option value="MUSC" >Music</option>
+            <option value="PHAC" >Physical Activities</option>
+            <option value="PHIL" >Philosophy</option>
+            <option value="PHYS" >Physics</option>
+            <option value="POLS" >Politics</option>
+            <option value="PSYC" >Psychology</option>
+            <option value="RELS" >Religious Studies</option>
+            <option value="RUSN" >Russian</option>
+            <option value="SOC" >Sociology</option>
+            <option value="SPAN" >Spanish and French Studies</option>
+            <option value="THEA" >Theater</option>
+            <option value="UEP" >Urban and Environmental Policy</option>
+            <option value="WRD" >Writing and Rhetoric</option>
+        </select>
+
+        <select name="professor" id="professor_selection">
+            <option>Please Select a Professor</option>
+            {% for prof in list_of_prof %}
+            <option value="{{ prof }}" >{{ prof }}</option>
+            {% endfor %}
+        </select>
+
+        <p>
+            <input class="button" type="submit" value="Submit"/>
+        </p>
+    </form>
+
+
 </body>
-</html>
