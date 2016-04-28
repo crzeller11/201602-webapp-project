@@ -94,7 +94,11 @@ def view_course_info():
                 results.append(instance)
     return render_template('filtered_page.html', results=results)
 
-
+'''
+ADDITIONS:
+- Search through course descriptions, maybe redirect to a separate page
+- Add a search bar that searches like Justin's app does. Conducts a much broader search
+'''
 
 def view_results():
     return render_template('filtered_page.html')
