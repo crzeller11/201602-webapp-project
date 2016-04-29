@@ -1,20 +1,19 @@
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+var myName = "Course Counts";
+
+var black = [0, 0, 0];
+var orange = [40, 100, 60];
+
+var letterColors = [black, orange];
+
+drawName(myName, letterColors);
+
+if(10 < 3)
+{
+    bubbleShape = 'square';
+}
+else
+{
+    bubbleShape = 'circle';
 }
 
-
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
+bounceBubbles();
