@@ -26,15 +26,14 @@ class Course_Info:
         self.reserved_open = reserved_open
         self.waitlisted = waitlisted
 
-
 def get_data():
     course_data = []
     with open('counts.tsv') as file:
         for line in file.read().splitlines():
             year, term, dept, course_num, section, title, units, professor, schedule, core_recs, total_seats, \
             enrolled, reserved, reserved_open, waitlisted = line.split('\t')
-            professor = professor.split(';')
-            professor = ", ".join(professor)
+            professor = professor.replace(';', '; ')
+            core_recs = core_recs.replace(';', '; ')
             course_data.append(Course_Info(year, term, dept, course_num, section, title, units, professor,
             schedule, core_recs, total_seats, enrolled, reserved, reserved_open, waitlisted))
     return course_data
@@ -47,7 +46,6 @@ def get_prof_list():
             list_of_prof.append(instance.professor)
     return sorted(list_of_prof)
 
-
 # check the course_info class and just see if that's the right thing to do and then check the get_data function. I don't
 # think the list course_data needs to be sorted like in did in the flask lab, because we aren't searching for anything in
 # particular like we were before.
@@ -58,13 +56,10 @@ HTML file that displays results (filtered_page)
 Design, what should entire website looks like, what should CSS look like? What should whole design look like
 '''
 
-
 @app.route('/')
 def view_root():
     list_of_prof = get_prof_list()
     return render_template('base.html', list_of_prof=list_of_prof)
-
-
 
 @app.route('/results')
 def view_course_info():
@@ -93,6 +88,7 @@ def view_course_info():
                 refined_term.append(instance)
     if core_recs == "Please Select Core":
         refined_core_recs = refined_term
+    # Add the instance to refined_core_recs list only if the core_recs of the instance is found in the list of core_recs
     if core_recs is not None:
         for instance in refined_term:
             if instance.core_recs.find(core_recs) != -1:
@@ -105,6 +101,7 @@ def view_course_info():
                 refined_dept.append(instance)
     if professor == "Please Select a Professor":
         results = refined_dept
+    # Add the instance to results list only if the professor name of the instance is found in the list of professors
     if professor is not None:
         for instance in refined_dept:
             if instance.professor.find(professor) != -1:
@@ -119,7 +116,6 @@ ADDITIONS:
 
 def view_results():
     return render_template('filtered_page.html')
-
 
 # The functions below lets you access files in the css, js, and images folders.
 # You should not change them unless you know what you are doing.
