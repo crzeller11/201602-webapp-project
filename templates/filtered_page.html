@@ -59,45 +59,45 @@
 <body>
     <div class="Go">
     <ul>
-      <li><a href="default.asp"><img src="http://imgur.com/EONBzOu.jpg" style="width:70px;height:70px;align:left;"></a></li>
+      <li><a href="http://www.popularmechanics.com/technology/design/g446/4339347/"><img src="http://imgur.com/EONBzOu.jpg" style="width:70px;height:70px;align:left;"></a></li>
       <li><a href="https://my.oxy.edu/cp/home/displaylogin"><img src="http://imgur.com/3Efdvhh.jpg" style="width:70px;height:70px;align:left;"></a></li>
       <li><a href="http://www.oxy.edu/sites/default/files/assets/campus_map.pdf"><img src="http://imgur.com/EnppmvQ.jpg" style="width:70px;height:70px;align:left;"></a></li>
       <li><a href="http://www.ratemyprofessors.com/"><img src="http://imgur.com/WXuDswI.jpg" style="width:70px;height:70px;align:left;"></a></li>
-      <li><a href="justinnhli@oxy.edu"><img src="http://imgur.com/mXED5LE.jpg" style="width:70px;height:70px;align:left;"></a></li>
-      <li><a href="www.google.com"><img src="http://i.imgur.com/Awb7p3u.jpg" style="width:708px;height:70px;align:left;"></a></li>
+      <li><a href="http://www.arvinddevalia.com/blog/2014/05/20/21-powerful-reasons-to-stop-complaining/"><img src="http://imgur.com/mXED5LE.jpg" style="width:70px;height:70px;align:left;"></a></li>
+      <li><a href="https://counts.oxy.edu/"><img src="http://i.imgur.com/Awb7p3u.jpg" style="width:708px;height:70px;align:left;"></a></li>
     </ul>
     </div>
 
     <div class ="background">
         <div class="transbox">
-            <table border="1" border-color=""#fff" cellpadding="5" cellspacing="5" style="width:20%; border-collapse:collapse;" id="t01">
-                <tr>
-                    <th>Year </th>
-                    <th>Term</th>
-                    <th>Department</th>
-                    <th>Course Number</th>
-                    <th>Section</th>
-                    <th>Title</th>
-                    <th>Units</th>
-                    <th>Professor</th>
-                    <th>Schedule</th>
-                    <th>Core</th>
-                    <th>Total Seats</th>
-                    <th>Enrolled</th>
-                    <th>Reserved</th>
-                    <th>Reserved Open</th>
-                    <th>Waitlisted</th>
+            <table border="1"  cellpadding="5" cellspacing="5" style="width:100%; border-collapse:collapse; border-color:Blue; border-right:none; border-left:none;" id="t01">
+                <tr style=" border-bottom: dashed; border-color:BLUE; text-align: center;">
+                    <th style="border-right: none; border-left:none";>Year </th>
+                    <th style="border-right: none; border-left:none">Term</th>
+                    <th style="border-right: none; border-left:none">Department</th>
+                    <th style="border-right: none; border-left:none">Course Number</th>
+                    <th style="border-right: none; border-left:none">Section</th>
+                    <th style="border-right: none; border-left:none">Title</th>
+                    <th style="border-right: none; border-left:none">Units</th>
+                    <th style="border-right: none; border-left:none">Professor</th>
+                    <th style="border-right: none; border-left:none">Schedule</th>
+                    <th style="border-right: none; border-left:none">Core</th>
+                    <th style="border-right: none; border-left:none">Total Seats</th>
+                    <th style="border-right: none; border-left:none">Enrolled</th>
+                    <th style="border-right: none; border-left:none">Reserved</th>
+                    <th style="border-right: none; border-left:none">Reserved Open</th>
+                    <th style="border-right: none; border-left:none">Waitlisted</th>
                 </tr>
                 {% for course in results %}
-                <tr>
+                <tr style=" text-align:center; ">
                     <td>{{ course.year }}</td>
                     <td>{{ course.term }}</td>
                     <td>{{ course.dept }}</td>
                     <td>{{ course.course_num }}</td>
                     <td>{{ course.section }}</td>
-                    <td>{{ course.title }}</td>
+                    <td style="white-space:nowrap;">{{ course.title }}</td>
                     <td>{{ course.units }}</td>
-                    <td><a herf="google.com">{{ course.professor }}</a></td>
+                    <td>{{ course.professor }}</a></td>
                     <td>{{ course.schedule }}</td>
                     <td>{{ course.core_recs }}</td>
                     <td>{{ course.total_seats }}</td>
