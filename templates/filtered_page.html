@@ -1,5 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<style>
+html{
+	background:
+    linear-gradient( rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.77) ), url("http://i.imgur.com/FWAaM6z.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Results</title>
@@ -10,21 +19,21 @@
 </p>
     <table border="1" cellpadding="5" cellspacing="5" style="width:50%" id="t01">
         <tr>
-            <th>Year </th>
-            <th>Term</th>
-            <th>Department</th>
-            <th>Course Number</th>
-            <th>Section</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Professor</th>
-            <th>Schedule</th>
-            <th>Core</th>
-            <th>Total Seats</th>
-            <th>Enrolled</th>
-            <th>Reserved</th>
-            <th>Reserved Open</th>
-            <th>Waitlisted</th>
+            <th><h2>Year </h2></th>
+            <th><h2>Term</h2></th>
+            <th><h2>Department</h2></th>
+            <th><h2>Course Number</h2></th>
+            <th><h2>Section</h2></th>
+            <th><h2>Title</h2></th>
+            <th><h2>Units</h2></th>
+            <th><h2>Professor</h2></th>
+            <th><h2>Schedule</h2></th>
+            <th><h2>Core</h2></th>
+            <th><h2>Total Seats</h2></th>
+            <th><h2>Enrolled</h2></th>
+            <th><h2>Reserved</h2></th>
+            <th><h2>Reserved Open</h2></th>
+            <th><h2>Waitlisted</h2></th>
         </tr>
         {% for course in results %}
         <tr>
@@ -35,7 +44,7 @@
             <td>{{ course.section }}</td>
             <td>{{ course.title }}</td>
             <td>{{ course.units }}</td>
-            <td>{{ course.professor }}</td>
+            <td><a herf="google.com">{{ course.professor }}</a></td>
             <td>{{ course.schedule }}</td>
             <td>{{ course.core_recs }}</td>
             <td>{{ course.total_seats }}</td>

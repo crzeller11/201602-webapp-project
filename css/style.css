@@ -1,3 +1,79 @@
+body{
+    text-align: center;
+    }
+
+h1 {
+	color: #fff;
+	font-family: 'Vollkorn';
+	font-size: 120px;
+	line-height: 120px;
+	margin: 20px 0 72px -10px;
+	position: relative;
+	text-align: center;
+	}
+
+h2 { color: #fff;
+	font-family: 'Roboto';
+	font-size: 32px;
+	float: right;
+	line-height: 48px;
+	margin-bottom: 48px;
+	width: 500px; }
+
+p {
+	color: #fff;
+	font-family: 'Vollkorn';
+	font-size: 20px;
+	float: right;
+	line-height: 48px;
+	margin-bottom: 48px;
+	width: 500px;
+	text-align:right;
+}
+
+a {
+	color: #48222F;
+	font-size: 16px;
+	font-family: 'Vollkorn', serif;
+	font-style: italic;
+	font-weight: 400;
+	float: left;
+	line-height: 24px;
+	margin-bottom: 48px;
+	margin-top: 20px;
+	text-align: right;
+	text-decoration: none;
+	width: 240px;
+}
+
+a:hover {
+	color: #fff;
+}
+
+select {
+	color: #555;
+	font-family: Serif;
+	font-size: 15px;
+	line-height: 36px;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.rox{
+    position: relative;
+    display: block;
+    boarder:none;
+    margin-bottom: 20px;
+	margin-top: 110px;
+}
+
+.james{
+    position: relative;
+    display: block;
+    boarder:none;
+    margin-bottom: 20px;
+	margin-top: 20px;
+   }
 /* Dropdown Button */
 .dropbutton {
     background-color: #4CAF50;
@@ -37,11 +113,6 @@ th, td {
     padding: 15px;
 }
 
-h2 {color:#43C6DB;
-    font-family: serif;
-    text-align: center;
-}
-
 .seal {
     position: relative;
     overflow: hidden;
@@ -55,13 +126,5 @@ h2 {color:#43C6DB;
     height: auto;
     opacity:0.6;
 }
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-    background-color: #fff;
-}
-table#t01 th {
-    color: white;
-    background-color: black;
-}
+
+
