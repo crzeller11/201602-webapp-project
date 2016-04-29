@@ -12,7 +12,7 @@ h1 {
 	text-align: center;
 	}
 
-h2 { color: #fff;
+h2 { color: #48222F;
 	font-family: 'Roboto';
 	font-size: 32px;
 	float: right;
@@ -31,24 +31,6 @@ p {
 	text-align:right;
 }
 
-a {
-	color: #48222F;
-	font-size: 16px;
-	font-family: 'Vollkorn', serif;
-	font-style: italic;
-	font-weight: 400;
-	float: left;
-	line-height: 24px;
-	margin-bottom: 48px;
-	margin-top: 20px;
-	text-align: right;
-	text-decoration: none;
-	width: 240px;
-}
-
-a:hover {
-	color: #fff;
-}
 
 select {
 	color: #555;
@@ -76,27 +58,18 @@ select {
    }
 
 table, th, td {
-    border: 1px solid black;
+    border: 0px solid black;
 
 }
 
 th, td {
     text-align: center;
-    padding: 15px;
+    text-color: #48222F;
+	font-family: 'Roboto';
+	font-size: 32px;
+	margin-bottom: 48px;
 }
 
-.seal {
-    position: relative;
-    overflow: hidden;
-}
 
-.seal img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    opacity:0.6;
-}
 
 
