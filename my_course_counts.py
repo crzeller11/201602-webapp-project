@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 # FIXME write your app below
 
+# class Course_Info organizes each course from counts.tsv into an instance
 class Course_Info:
     def __init__(self, year, term, dept, course_num, section, title, units, professor, schedule, core_recs,
                  total_seats, enrolled, reserved, reserved_open, waitlisted):
@@ -26,6 +27,7 @@ class Course_Info:
         self.reserved_open = reserved_open
         self.waitlisted = waitlisted
 
+# get_data creates a list of instances of Course_Info
 def get_data():
     course_data = []
     with open('counts.tsv') as file:
@@ -38,6 +40,7 @@ def get_data():
             schedule, core_recs, total_seats, enrolled, reserved, reserved_open, waitlisted))
     return course_data
 
+
 def get_prof_list():
     list_of_prof = []
     course_data = get_data()
@@ -46,15 +49,6 @@ def get_prof_list():
             list_of_prof.append(instance.professor)
     return sorted(list_of_prof)
 
-# check the course_info class and just see if that's the right thing to do and then check the get_data function. I don't
-# think the list course_data needs to be sorted like in did in the flask lab, because we aren't searching for anything in
-# particular like we were before.
-
-'''
-Things we need:
-HTML file that displays results (filtered_page)
-Design, what should entire website looks like, what should CSS look like? What should whole design look like
-'''
 
 @app.route('/')
 def view_root():
@@ -108,11 +102,6 @@ def view_course_info():
                 results.append(instance)
     return render_template('filtered_page.html', results=results)
 
-'''
-ADDITIONS:
-- Search through course descriptions, maybe redirect to a separate page
-- Add a search bar that searches like Justin's app does. Conducts a much broader search
-'''
 
 def view_results():
     return render_template('filtered_page.html')
